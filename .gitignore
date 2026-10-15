@@ -1,0 +1,38 @@
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# --- Kubernetes ---
+kubeconfig
+*.kubeconfig
+
+# --- Terraform (.terraform.lock.hcl is NOT ignored on purpose) ---
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform/
+crash.log
+crash.*.log
+
+# --- Ansible ---
+*.retry
+.vault_pass*
+
+# --- VM images ---
+*.qcow2
+*.img
+*.iso
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# --- Editor ---
+.vscode/
