@@ -1,0 +1,14 @@
+.env
+.env.*
+**/__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+.venv
+tests
+requirements-dev.txt
+pyproject.toml
+init.sql
+compose.yaml
+Dockerfile
+.dockerignore
