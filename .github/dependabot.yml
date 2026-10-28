@@ -1,0 +1,36 @@
+version: 2
+
+# Dependabot открывает PR с обновлениями, каждый такой PR проходит наш CI.
+# cooldown: не предлагать версию моложе 7 дней (защита от свежескомпрометированных релизов).
+updates:
+  # Python-зависимости (apps/requirements*.txt, версии закреплены точно)
+  - package-ecosystem: pip
+    directory: /apps
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+
+  # Базовый образ в apps/Dockerfile (python:3.12.x-slim-trixie)
+  - package-ecosystem: docker
+    directory: /apps
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+
+  # Образ postgres в apps/compose.yaml
+  - package-ecosystem: docker-compose
+    directory: /apps
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+
+  # Версии actions в .github/workflows (закреплены на SHA, Dependabot обновляет и SHA, и комментарий)
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
