@@ -1,11 +1,11 @@
-FROM python:3.12.15-slim-trixie AS builder
+FROM python:3.15.0-slim-trixie AS builder
 
 WORKDIR /build
 RUN python -m venv /opt/venv
 COPY requirements.txt .
 RUN /opt/venv/bin/pip install --no-cache-dir --disable-pip-version-check -r requirements.txt
 
-FROM python:3.12.15-slim-trixie
+FROM python:3.15.0-slim-trixie
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
