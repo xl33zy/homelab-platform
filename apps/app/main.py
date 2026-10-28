@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException, Path, Query, Request, Response
 from fastapi.responses import JSONResponse
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 from pydantic import BaseModel, ConfigDict, Field
+
 from app.db import create_pool
 
 logger = logging.getLogger("app")
@@ -19,7 +20,7 @@ BIGINT_MAX = 9223372036854775807
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     pool = create_pool()
-    pool.open(wait=False) 
+    pool.open(wait=False)
     app.state.pool = pool
     try:
         yield
